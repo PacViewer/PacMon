@@ -1,0 +1,46 @@
+[package]
+name = "libp2p-lookup"
+version = "0.6.4"
+authors = ["Max Inden <mail@max-inden.de>"]
+edition = "2021"
+license = "MIT"
+description = "Lookup a peer by its id."
+repository = "https://github.com/mxinden/libp2p-lookup"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+libp2p = { git = "https://github.com/libp2p/rust-libp2p", branch = "master", version = "0.52.1", default-features = false, features = [
+    "dns",
+    "async-std",
+    "noise",
+    "tcp",
+    "yamux",
+    "identify",
+    "kad",
+    "ping",
+    "relay",
+    "rsa",
+    "macros",
+    "secp256k1",
+    "ecdsa",
+    "websocket",
+] }
+libp2p-quic = { git = "https://github.com/libp2p/rust-libp2p", branch = "master", version = "0.8.0-alpha", default-features = false, features = [
+    "async-std",
+] }
+libp2p-mplex = { git = "https://github.com/libp2p/rust-libp2p", branch = "master", version = "0.40", default-features = false }
+structopt = "0.3.26"
+futures = "0.3.26"
+env_logger = "0.11.2"
+async-std = { version = "1.12.0", features = ["attributes"] }
+ansi_term = "0.12.1"
+log = "0.4"
+thiserror = "1"
+rusqlite = "0.31.0"
+uuid = { version = "1.7.0", features = [
+    "v4",                # Lets you generate random UUIDs
+    "fast-rng",          # Use a faster (but still sufficiently random) RNG
+    "macro-diagnostics", # Enable better diagnostics for compile-time UUIDs
+] }
+pub-sub = "2.0.0"
